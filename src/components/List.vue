@@ -1,5 +1,5 @@
 <template>
-  <component class="list">
+  <component class="list" @scroll="updateScrollTop">
     <component class="item"
                v-for="(index, topOffset) in metaDataOfVisibleList"
                :render="rowRender(metaDataOfVisibleList[index], metaDataOfVisibleList[topOffset])">
@@ -64,8 +64,18 @@ export default {
           })
         }
       }
+    },
+
+    updateScrollTop: function (event) {
+      this.scrollTop = event.target.scrollTop;
+      this.visibleItems(scrollTop, this.height, this.items, this.rowHeight);
     }
+  },
+
+  mounted() {
+    this.visibleItems();
   }
+
 }
 </script>
 
