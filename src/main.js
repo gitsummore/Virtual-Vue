@@ -1,6 +1,7 @@
 import Vue from 'vue'
+import Demo from './components/Demo'
 
-// new Vue({
-//   el: '#app',
-//   render: h => h(List)
-// })
+new Vue({
+  el: '#list',
+  render: h => h(List)
+})
